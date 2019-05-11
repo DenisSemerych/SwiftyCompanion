@@ -10,17 +10,17 @@ import UIKit
 
 class LoginEnterViewController: UIViewController {
 
+    private var intraAPIConroller = IntraAPIController()
     
-    private let apiDelegate: ApiDelegate
     @IBOutlet weak var loginSearchField: UITextField!
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        let login = loginSearchField.text
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
+        intraAPIConroller.requestUserInfo(login: loginSearchField.text!)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        intraAPIConroller.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +29,6 @@ class LoginEnterViewController: UIViewController {
         loginSearchField.layer.borderWidth = 1
         loginSearchField.layer.borderColor = UIColor.black.cgColor
     }
-    
-    
 }
 
 
@@ -61,6 +59,13 @@ extension LoginEnterViewController: UITextFieldDelegate {
         changePlaceholderFont()
     }
     
+    //alowing to enter only letters in textfield
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.letters
+        let enteredCharacters = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: enteredCharacters)
+    }
+    
     //changing placeholder font
     private func changePlaceholderFont() {
         let atributes = [
@@ -68,5 +73,21 @@ extension LoginEnterViewController: UITextFieldDelegate {
             NSAttributedStringKey.font : UIFont(name: "Baskerville-Italic", size: 18)!
         ]
         loginSearchField.attributedPlaceholder = NSAttributedString(string: "Enter Intra 42 login", attributes: atributes)
+    }
+    
+    
+    
+}
+
+extension LoginEnterViewController: IntraAPIDelegate {
+    func processRequestResult(result: RequestResult) {
+        switch result {
+        case .success:
+            performSegue(withIdentifier: "goToLoginInfo", sender: self)
+        case .noSuchLogin:
+            print("Bad login")
+        case .requestFailure:
+            print("Fail to send")
+        }
     }
 }

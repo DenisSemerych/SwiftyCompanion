@@ -10,10 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class ApiDelegate {
+class IntraAPIController {
     private var userID = "faf77e26c88d7eb346b286661a323b4e9b82abc46d3a3a21ca2937eefa1703de"
     private var secretKey =  "a92c30817af0819c05513568f92babc2e3bf7dda6d9f9aa7f0cc3dd8eb3c8090"
     private var token: String?
+    var delegate: IntraAPIDelegate?
     
     
     //Make request to get token from API
@@ -27,16 +28,19 @@ class ApiDelegate {
             self.token = responceData.value(forKey: "access_token") as? String
         }
     }
-    
-    func requestUserInfo(login: String) -> RequestResult {
-        var result: RequestResult
-        let url: URLConvertible = "https://api.intra.42.fr/v2/users/" + login
+
+    //Requesting user info from login
+    func requestUserInfo(login: String) {
+        let url: URLConvertible = "https://api.intra.42.fr/v2/users/" + login.trimmingCharacters(in: .whitespaces).lowercased()
         let headers = ["Authorization" : "Bearer \(token!)"]
         Alamofire.request(url, method: .get, headers: headers).responseJSON() { response in
             print(response.value)
-            result = RequestResult.success
+            self.delegate?.processRequestResult(result: RequestResult.success)
         }
-        return result
+    }
+    
+    init() {
+        self.requestToken()
     }
 }
 
