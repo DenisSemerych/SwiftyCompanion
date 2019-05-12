@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE5272FEEA703BF8D2D73658D3F2F906"
-               BuildableName = "SwiftyJSON.framework"
-               BlueprintName = "SwiftyJSON"
+               BlueprintIdentifier = "CD9B280B558F367E23638352C6E99D15"
+               BuildableName = "GTProgressBar.framework"
+               BlueprintName = "GTProgressBar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

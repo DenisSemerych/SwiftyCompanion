@@ -8,4 +8,6 @@ target 'SwiftyCompanion' do
   # Pods for SwiftyCompanion
   pod 'Alamofire', '~> 4.0'
   pod 'SwiftyJSON', '~> 3.0'
+  pod 'GTProgressBar'
+  pod 'DDSpiderChart'
 end

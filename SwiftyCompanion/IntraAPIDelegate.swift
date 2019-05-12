@@ -9,6 +9,6 @@
 import Foundation
 
 
-protocol IntraAPIDelegate {
+protocol IntraAPIDelegate: NSObjectProtocol {
     func processRequestResult(result: RequestResult)
 }

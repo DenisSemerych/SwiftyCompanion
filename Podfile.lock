@@ -1,20 +1,28 @@
 PODS:
   - Alamofire (4.8.2)
+  - DDSpiderChart (0.5)
+  - GTProgressBar (0.3.3)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - DDSpiderChart
+  - GTProgressBar
   - SwiftyJSON (~> 3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - DDSpiderChart
+    - GTProgressBar
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  DDSpiderChart: e8ea6e63b54b08bd680c66cd48a0f51ca80b8f96
+  GTProgressBar: a480283ecb0ada50de16c71e634892826928f640
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 34e3821a5cf92bd7a1ec7c76fc9d0d5e93dc5c57
+PODFILE CHECKSUM: 2a2574b2f9893abc96110e3eab3bdfd5e5188cb4
 
 COCOAPODS: 1.6.1

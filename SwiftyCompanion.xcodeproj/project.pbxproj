@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2344B14B2287492D0058153C /* IntraAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344B14A2287492D0058153C /* IntraAPIDelegate.swift */; };
 		235505F12287420C0020EACD /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235505F02287420C0020EACD /* RequestResult.swift */; };
+		237E6339228876E1006EF825 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E6338228876E1006EF825 /* UserInfoViewController.swift */; };
 		238714882285DDC300E06ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238714872285DDC300E06ED6 /* AppDelegate.swift */; };
 		2387148A2285DDC300E06ED6 /* LoginEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238714892285DDC300E06ED6 /* LoginEnterViewController.swift */; };
 		2387148D2285DDC300E06ED6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2387148B2285DDC300E06ED6 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		2344B14A2287492D0058153C /* IntraAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntraAPIDelegate.swift; sourceTree = "<group>"; };
 		235505F02287420C0020EACD /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		237E6338228876E1006EF825 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		238714842285DDC300E06ED6 /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238714872285DDC300E06ED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238714892285DDC300E06ED6 /* LoginEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnterViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			children = (
 				238714872285DDC300E06ED6 /* AppDelegate.swift */,
 				238714892285DDC300E06ED6 /* LoginEnterViewController.swift */,
+				237E6338228876E1006EF825 /* UserInfoViewController.swift */,
 				23B3415A2286F22C00949C64 /* IntraAPIController.swift */,
 				2344B14A2287492D0058153C /* IntraAPIDelegate.swift */,
 				235505F02287420C0020EACD /* RequestResult.swift */,
@@ -193,11 +196,15 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DDSpiderChart/DDSpiderChart.framework",
+				"${BUILT_PRODUCTS_DIR}/GTProgressBar/GTProgressBar.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DDSpiderChart.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTProgressBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23B3415B2286F22C00949C64 /* IntraAPIController.swift in Sources */,
+				237E6339228876E1006EF825 /* UserInfoViewController.swift in Sources */,
 				2387148A2285DDC300E06ED6 /* LoginEnterViewController.swift in Sources */,
 				2344B14B2287492D0058153C /* IntraAPIDelegate.swift in Sources */,
 				235505F12287420C0020EACD /* RequestResult.swift in Sources */,

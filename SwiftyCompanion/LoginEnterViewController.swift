@@ -21,6 +21,7 @@ class LoginEnterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         intraAPIConroller.delegate = self
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
