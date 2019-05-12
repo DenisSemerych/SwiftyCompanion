@@ -21,7 +21,6 @@ class LoginEnterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         intraAPIConroller.delegate = self
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +28,12 @@ class LoginEnterViewController: UIViewController {
         changePlaceholderFont()
         loginSearchField.layer.borderWidth = 1
         loginSearchField.layer.borderColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
 
