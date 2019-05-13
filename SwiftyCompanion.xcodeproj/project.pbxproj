@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2344B14B2287492D0058153C /* IntraAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344B14A2287492D0058153C /* IntraAPIDelegate.swift */; };
 		235505F12287420C0020EACD /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235505F02287420C0020EACD /* RequestResult.swift */; };
+		236BBFC92289CDB400582ED3 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BBFC82289CDB400582ED3 /* UserData.swift */; };
+		236BBFCB2289E81F00582ED3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BBFCA2289E81F00582ED3 /* Skill.swift */; };
+		236BBFCD2289E83E00582ED3 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BBFCC2289E83E00582ED3 /* Project.swift */; };
 		237E6339228876E1006EF825 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E6338228876E1006EF825 /* UserInfoViewController.swift */; };
 		238714882285DDC300E06ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238714872285DDC300E06ED6 /* AppDelegate.swift */; };
 		2387148A2285DDC300E06ED6 /* LoginEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238714892285DDC300E06ED6 /* LoginEnterViewController.swift */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		2344B14A2287492D0058153C /* IntraAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntraAPIDelegate.swift; sourceTree = "<group>"; };
 		235505F02287420C0020EACD /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		236BBFC82289CDB400582ED3 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		236BBFCA2289E81F00582ED3 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		236BBFCC2289E83E00582ED3 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		237E6338228876E1006EF825 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		238714842285DDC300E06ED6 /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238714872285DDC300E06ED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +78,9 @@
 				238714872285DDC300E06ED6 /* AppDelegate.swift */,
 				238714892285DDC300E06ED6 /* LoginEnterViewController.swift */,
 				237E6338228876E1006EF825 /* UserInfoViewController.swift */,
+				236BBFC82289CDB400582ED3 /* UserData.swift */,
+				236BBFCA2289E81F00582ED3 /* Skill.swift */,
+				236BBFCC2289E83E00582ED3 /* Project.swift */,
 				23B3415A2286F22C00949C64 /* IntraAPIController.swift */,
 				2344B14A2287492D0058153C /* IntraAPIDelegate.swift */,
 				235505F02287420C0020EACD /* RequestResult.swift */,
@@ -221,10 +230,13 @@
 			files = (
 				23B3415B2286F22C00949C64 /* IntraAPIController.swift in Sources */,
 				237E6339228876E1006EF825 /* UserInfoViewController.swift in Sources */,
+				236BBFC92289CDB400582ED3 /* UserData.swift in Sources */,
 				2387148A2285DDC300E06ED6 /* LoginEnterViewController.swift in Sources */,
 				2344B14B2287492D0058153C /* IntraAPIDelegate.swift in Sources */,
+				236BBFCB2289E81F00582ED3 /* Skill.swift in Sources */,
 				235505F12287420C0020EACD /* RequestResult.swift in Sources */,
 				238714882285DDC300E06ED6 /* AppDelegate.swift in Sources */,
+				236BBFCD2289E83E00582ED3 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

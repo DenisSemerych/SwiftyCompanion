@@ -86,9 +86,10 @@ extension LoginEnterViewController: UITextFieldDelegate {
 }
 
 extension LoginEnterViewController: IntraAPIDelegate {
-    func processRequestResult(result: RequestResult) {
+    func processRequestResult(result: RequestResult, with data: Data?) {
         switch result {
         case .success:
+            let userData = UserData(form: data!)
             performSegue(withIdentifier: "goToLoginInfo", sender: self)
         case .noSuchLogin:
             print("Bad login")

@@ -57,7 +57,7 @@ class IntraAPIController {
         Alamofire.request(url, method: .get, headers: headers).response { [weak self] response in
             print(response.data)
             self?.taskGroup.notify(queue: .main) {
-                self?.delegate?.processRequestResult(result: RequestResult.success)
+                self?.delegate?.processRequestResult(result: RequestResult.success, with: response.data)
             }
         }
     }

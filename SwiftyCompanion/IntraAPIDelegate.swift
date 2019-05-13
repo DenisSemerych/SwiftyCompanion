@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol IntraAPIDelegate: NSObjectProtocol {
-    func processRequestResult(result: RequestResult)
+    func processRequestResult(result: RequestResult, with data: Data?)
 }
