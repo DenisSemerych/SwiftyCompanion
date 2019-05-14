@@ -8,7 +8,18 @@
 
 import Foundation
 
+enum ValidStatus {
+    case valid, failed, waiting
+}
 
-struct Project {
+struct Project: Item {
     
+    var name: String
+    var id: Int
+    var isParent: Bool
+    var parentID: Int?
+    var finalMark: Int
+    var status: String
+    var validated: ValidStatus
+    var subProjects = [Project]()
 }

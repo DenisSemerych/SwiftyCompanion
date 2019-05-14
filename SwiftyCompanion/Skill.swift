@@ -8,6 +8,9 @@
 
 import Foundation
 
-struct Skill {
+struct Skill: LevelItem {
     
+    var id: Int
+    var name: String
+    var level: Double
 }

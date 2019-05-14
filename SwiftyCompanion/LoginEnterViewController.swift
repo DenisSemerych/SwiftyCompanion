@@ -12,6 +12,7 @@ class LoginEnterViewController: UIViewController {
 
     private var intraAPIConroller = IntraAPIController()
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loginSearchField: UITextField!
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
@@ -25,9 +26,12 @@ class LoginEnterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .white
         changePlaceholderFont()
         loginSearchField.layer.borderWidth = 1
-        loginSearchField.layer.borderColor = UIColor.black.cgColor
+        loginSearchField.layer.borderColor  = UIColor(red: 85/255, green: 183/255, blue: 186/255, alpha: 1).cgColor
+        self.navigationController?.navigationBar.barStyle = .blackOpaque
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -57,7 +61,7 @@ extension LoginEnterViewController: UITextFieldDelegate {
         textField.placeholder = ""
         let font = UIFont.init(name: "Baskerville-Bold", size: CGFloat.init(18))
         textField.font = font
-        textField.textColor = .black
+        textField.textColor = .white
     }
     
     //making custom font for textView
@@ -89,7 +93,7 @@ extension LoginEnterViewController: IntraAPIDelegate {
     func processRequestResult(result: RequestResult, with data: Data?) {
         switch result {
         case .success:
-            let userData = UserData(form: data!)
+            let userData = ItemFactory.shared.create(item: .userData, from: data!)
             performSegue(withIdentifier: "goToLoginInfo", sender: self)
         case .noSuchLogin:
             print("Bad login")

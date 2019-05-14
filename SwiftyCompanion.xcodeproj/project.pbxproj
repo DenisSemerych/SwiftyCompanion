@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2313FF9C228B090E002F4DEB /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313FF9B228B090E002F4DEB /* Cursus.swift */; };
 		2344B14B2287492D0058153C /* IntraAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344B14A2287492D0058153C /* IntraAPIDelegate.swift */; };
 		235505F12287420C0020EACD /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235505F02287420C0020EACD /* RequestResult.swift */; };
+		2361E022228B2DCF00853AA5 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2361E021228B2DCF00853AA5 /* ItemFactory.swift */; };
 		236BBFC92289CDB400582ED3 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BBFC82289CDB400582ED3 /* UserData.swift */; };
 		236BBFCB2289E81F00582ED3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BBFCA2289E81F00582ED3 /* Skill.swift */; };
 		236BBFCD2289E83E00582ED3 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BBFCC2289E83E00582ED3 /* Project.swift */; };
@@ -16,15 +18,17 @@
 		238714882285DDC300E06ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238714872285DDC300E06ED6 /* AppDelegate.swift */; };
 		2387148A2285DDC300E06ED6 /* LoginEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238714892285DDC300E06ED6 /* LoginEnterViewController.swift */; };
 		2387148D2285DDC300E06ED6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2387148B2285DDC300E06ED6 /* Main.storyboard */; };
-		2387148F2285DDC300E06ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2387148E2285DDC300E06ED6 /* Assets.xcassets */; };
 		238714922285DDC300E06ED6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238714902285DDC300E06ED6 /* LaunchScreen.storyboard */; };
+		239BCF12228AC74300D1857D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239BCF11228AC74200D1857D /* Assets.xcassets */; };
 		23B3415B2286F22C00949C64 /* IntraAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3415A2286F22C00949C64 /* IntraAPIController.swift */; };
 		870EE659137B75131982954E /* Pods_SwiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD530E348AF3B1289DBEF2DD /* Pods_SwiftyCompanion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2313FF9B228B090E002F4DEB /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
 		2344B14A2287492D0058153C /* IntraAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntraAPIDelegate.swift; sourceTree = "<group>"; };
 		235505F02287420C0020EACD /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		2361E021228B2DCF00853AA5 /* ItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
 		236BBFC82289CDB400582ED3 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		236BBFCA2289E81F00582ED3 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		236BBFCC2289E83E00582ED3 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -33,9 +37,9 @@
 		238714872285DDC300E06ED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238714892285DDC300E06ED6 /* LoginEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnterViewController.swift; sourceTree = "<group>"; };
 		2387148C2285DDC300E06ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2387148E2285DDC300E06ED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		238714912285DDC300E06ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		238714932285DDC300E06ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		239BCF11228AC74200D1857D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23B3415A2286F22C00949C64 /* IntraAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntraAPIController.swift; sourceTree = "<group>"; };
 		B1331CDC9C03500F896C5067 /* Pods-SwiftyCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.release.xcconfig"; path = "Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.release.xcconfig"; sourceTree = "<group>"; };
 		BD530E348AF3B1289DBEF2DD /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,14 +83,16 @@
 				238714892285DDC300E06ED6 /* LoginEnterViewController.swift */,
 				237E6338228876E1006EF825 /* UserInfoViewController.swift */,
 				236BBFC82289CDB400582ED3 /* UserData.swift */,
+				2313FF9B228B090E002F4DEB /* Cursus.swift */,
 				236BBFCA2289E81F00582ED3 /* Skill.swift */,
 				236BBFCC2289E83E00582ED3 /* Project.swift */,
+				2361E021228B2DCF00853AA5 /* ItemFactory.swift */,
 				23B3415A2286F22C00949C64 /* IntraAPIController.swift */,
 				2344B14A2287492D0058153C /* IntraAPIDelegate.swift */,
 				235505F02287420C0020EACD /* RequestResult.swift */,
 				2387148B2285DDC300E06ED6 /* Main.storyboard */,
-				2387148E2285DDC300E06ED6 /* Assets.xcassets */,
 				238714902285DDC300E06ED6 /* LaunchScreen.storyboard */,
+				239BCF11228AC74200D1857D /* Assets.xcassets */,
 				238714932285DDC300E06ED6 /* Info.plist */,
 			);
 			path = SwiftyCompanion;
@@ -171,7 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				238714922285DDC300E06ED6 /* LaunchScreen.storyboard in Resources */,
-				2387148F2285DDC300E06ED6 /* Assets.xcassets in Resources */,
+				239BCF12228AC74300D1857D /* Assets.xcassets in Resources */,
 				2387148D2285DDC300E06ED6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,7 +242,9 @@
 				236BBFCB2289E81F00582ED3 /* Skill.swift in Sources */,
 				235505F12287420C0020EACD /* RequestResult.swift in Sources */,
 				238714882285DDC300E06ED6 /* AppDelegate.swift in Sources */,
+				2313FF9C228B090E002F4DEB /* Cursus.swift in Sources */,
 				236BBFCD2289E83E00582ED3 /* Project.swift in Sources */,
+				2361E022228B2DCF00853AA5 /* ItemFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,10 +13,11 @@ import DDSpiderChart
 class UserInfoViewController: UIViewController {
 
     private var userData: UserData?
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var wallet: UILabel!
     @IBOutlet weak var evaluationPoints: UILabel!
-    @IBOutlet weak var curcus: UILabel!
+    @IBOutlet weak var cursus: UIButton!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var campus: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
@@ -27,14 +28,38 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var projectCarousel: UICollectionView!
     @IBOutlet weak var subProjectTable: UITableView!
     
+    //presenting UIPicker when choosing cursus
+    @IBAction func cursusChooseButtonPressed(_ sender: UIButton) {
+        let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.backgroundColor = .black
+        view.addSubview(picker)
+        picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.tintColor = UIColor(red: 83/255, green: 183/255, blue: 186, alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
+
+
+//PickerView methods
+extension UserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
+    
+    
 }
 
 //Progress Bar methods
