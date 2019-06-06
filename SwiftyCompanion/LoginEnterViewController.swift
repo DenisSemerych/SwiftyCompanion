@@ -65,7 +65,7 @@ extension LoginEnterViewController: UITextFieldDelegate {
     }
     
     //making custom font for textView
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         changePlaceholderFont()
     }
     
@@ -79,8 +79,8 @@ extension LoginEnterViewController: UITextFieldDelegate {
     //changing placeholder font
     private func changePlaceholderFont() {
         let atributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.gray.withAlphaComponent(0.5),
-            NSAttributedStringKey.font : UIFont(name: "Baskerville-Italic", size: 18)!
+            NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5),
+            NSAttributedString.Key.font : UIFont(name: "Baskerville-Italic", size: 18)!
         ]
         loginSearchField.attributedPlaceholder = NSAttributedString(string: "Enter Intra 42 login", attributes: atributes)
     }
@@ -93,7 +93,7 @@ extension LoginEnterViewController: IntraAPIDelegate {
     func processRequestResult(result: RequestResult, with data: Data?) {
         switch result {
         case .success:
-            let userData = ItemFactory.shared.create(item: .userData, from: data!)
+            let userData = ItemFactory.shared.createUser(from: data!)
             performSegue(withIdentifier: "goToLoginInfo", sender: self)
         case .noSuchLogin:
             print("Bad login")

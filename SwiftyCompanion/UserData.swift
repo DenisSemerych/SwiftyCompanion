@@ -8,28 +8,25 @@
 
 import Foundation
 
-class UserData: LevelItem {
+class UserData: Item {
     
-    var level: Double
     var name: String
     var id: Int
     var image: URL
     var evaluationPoints: Int
-    var cursus = [Cursus]()
-    var grade: String
+    var cursuses: [Cursus]
     var campus: String
     var phoneNumber: String?
     var email: String?
 
-    init() {
-        level = 0.1
-        name = "test"
-        image = URL(string: "test")!
-        evaluationPoints = 10
-        grade = "Test"
-        campus = "Kiev"
-        phoneNumber = "Test"
-        email = "test"
-        id = 1
+    init(name: String, id: Int, image: URL, evaluationPoints: Int, cursuses: [Cursus], campus: String, phoneNumber: String?, email: String?) {
+        self.name = name
+        self.id = id
+        self.image = image
+        self.evaluationPoints = evaluationPoints
+        self.cursuses = cursuses
+        self.campus = campus
+        self.phoneNumber = phoneNumber
+        self.email = email
     }
 }

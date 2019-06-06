@@ -12,13 +12,18 @@ class Cursus: Item {
     
     var id: Int
     var name: String
-    var skills = [Skill]()
+    var skills: [Skill]
+    var cursusUserLevel: Double
+    var cursusUserGrade: String
     var waitingProjects = [Project]()
     var finishedProjects = [Project]()
     var failedProjects = [Project]()
     
-    init(id: Int, name: String) {
+    init(id: Int, name: String, level: Double, skills: [Skill], grade: String?) {
+        self.cursusUserGrade = grade ?? "Novice"
+        self.cursusUserLevel = level
         self.id = 1
         self.name = name
+        self.skills = skills
     }
 }

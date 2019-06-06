@@ -23,34 +23,43 @@ enum Items {
 }
 
 class ItemFactory {
+    
     static let shared = ItemFactory()
-    private init(){}
     
-    
-    func create(item: Items, from data: Data) -> Item {
+    func createUser(from data: Data) -> UserData {
         let json = JSON(data: data)
-        switch item {
-        case .skill:
-            return createSkill(from: json)
-        case .cursus:
-            return createCursus(from: json)
-        case .project:
-            return createProject(from: json)
-        case .userData:
-            return createUser(from: json)
+        return createUser(from: json)
+    }
+    
+    private func createSkill(from allSkills: JSON) -> [Skill] {
+        var skills = [Skill]()
+        allSkills.forEach { index, json in
+            let id = json["id"].int
+            let name = json["name"].string
+            let level = json["level"].double
+            skills.append(Skill(id: id ?? 0, name: name ?? "Wrong Skill", level: level ?? 0.0))
         }
+        return skills
     }
     
-    private func createSkill(from: JSON) -> Skill {
-        return Skill(id: 1, name: "test", level: 1)
+    private func createCursuses(from allCursuses: JSON) -> [Cursus] {
+        var cursuses = [Cursus]()
+        allCursuses.forEach { index, json in
+            let grade = json["grade"].string
+            let level = json["level"].double
+            let skills = createSkill(from: json["skills"])
+            let cursusName = json["cursus"].dictionary?["name"]?.string
+            let cursusID = json["cursus"].dictionary?["id"]?.int
+            cursuses.append(Cursus(id: cursusID ?? 0, name: cursusName ?? "Wrong Cursus", level: level ?? 0.0, skills: skills, grade: grade))
+        }
+        return cursuses
     }
     
-    private func createCursus(from: JSON) -> Cursus {
-        return Cursus(id: 1, name: "s")
-    }
-    
-    private func createProject(from: JSON) -> Project {
-        return Project(name: "test", id: 1, isParent: false, parentID: 0, finalMark: 0, status: "tes", validated: .valid, subProjects: [Project]())
+    private func createProjects(from json: JSON, for cursuses: [Cursus]) {
+        var waitingProjects = [Project]()
+        json.forEach { index, project in
+            let cursusIDs = project["cursus_ids"]
+        }
     }
     
     private func createUser(from json: JSON) -> UserData {
@@ -62,9 +71,9 @@ class ItemFactory {
         let phoneNumber = json["phone"].string
         let email = json["email"].string
         let level = json["cursus_users"][0]["level"].double
-        let cursus = json["cursus_users"][0]["cursus"]["name"].string
-        let allProjects = json["projects_users"].arrayObject
-        let allSkills = json["cursus_users"][0]["skills"].arrayObject
-        
+        let cursuses = createCursuses(from: json["cursus_users"])
+        createProjects(from: json["project_users"], for: cursuses)
+        return UserData( name: "1", id: 1, image: URL(string: "1")!, evaluationPoints: 1, cursuses: [Cursus](), campus: "Kampus", phoneNumber: "", email: "")
     }
+    private init(){}
 }
