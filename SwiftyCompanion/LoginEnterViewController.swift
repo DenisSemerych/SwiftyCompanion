@@ -94,11 +94,51 @@ extension LoginEnterViewController: IntraAPIDelegate {
         switch result {
         case .success:
             let userData = ItemFactory.shared.createUser(from: data!)
+            out(userData: userData)
             performSegue(withIdentifier: "goToLoginInfo", sender: self)
         case .noSuchLogin:
             print("Bad login")
         case .requestFailure:
             print("Fail to send")
+        }
+    }
+    
+    func out(userData: UserData) {
+        print(userData.name)
+        print(userData.campus)
+        print(userData.id)
+        print(userData.evaluationPoints)
+        print(userData.campus)
+        print(userData.phoneNumber)
+        print(userData.email)
+        for cursus in userData.cursuses {
+            print(cursus.id, cursus.name, cursus.cursusUserLevel, cursus.cursusUserGrade)
+            for skill in cursus.skills {
+                print(skill.name, skill.level)
+            }
+            for project in cursus.waitingProjects {
+                print(project.name, project.status, project.validated, project.finalMark)
+                for sub in project.subProjects {
+                    print("Sub Projects ________________________________")
+                    print(sub.name, sub.status, sub.validated, sub.finalMark)
+                }
+            }
+            for project in cursus.finishedProjects {
+                print(project.name, project.status, project.validated, project.finalMark)
+                for sub in project.subProjects {
+                    print("Sub Projects ________________________________")
+                    print(sub.name, sub.status, sub.validated, sub.finalMark)
+                }
+            }
+            for project in cursus.failedProjects {
+                print(project.name, project.status, project.validated, project.finalMark)
+                
+                for sub in project.subProjects {
+                    print("Sub Projects ________________________________")
+                    print(sub.name, sub.status, sub.validated, sub.finalMark)
+                }
+            }
+            print("\n")
         }
     }
 }

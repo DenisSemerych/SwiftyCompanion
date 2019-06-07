@@ -26,7 +26,7 @@ class ItemFactory {
     
     static let shared = ItemFactory()
     
-    func createUser(from data: Data) -> UserData {
+    public func createUser(from data: Data) -> UserData {
         let json = JSON(data: data)
         return createUser(from: json)
     }
@@ -58,22 +58,65 @@ class ItemFactory {
     private func createProjects(from json: JSON, for cursuses: [Cursus]) {
         var waitingProjects = [Project]()
         json.forEach { index, project in
-            let cursusIDs = project["cursus_ids"]
+            let cursusIDs = project["cursus_ids"].arrayObject as? [Int]
+            let name = project["project"]["name"].string
+            let projectID = project["project"]["id"].int
+            let parentID = project["project"]["parentID"].int
+            let validated: ValidStatus
+            if let valid = project["validated?"].bool {
+                valid ? (validated = .valid) : (validated = .failed)
+            } else {
+                validated = .waiting
+            }
+            let status = project["status"].string
+            let finalMark = project["final_mark"].int
+            let newProject = Project(name: name ?? "No Project", cursusID: cursusIDs ?? [Int](), id: projectID ?? 0, parentID: parentID, finalMark: finalMark ?? 0, status: status ?? "No status", validated: validated, subProjects: [Project]())
+            let cursusesToSave = cursuses.filter({newProject.cursusID.contains($0.id)})
+            if newProject.isParent {
+               add(project: newProject, to: cursusesToSave)
+            } else {
+                waitingProjects.append(newProject)
+            }
+        }
+        add(subprojects: waitingProjects, to: cursuses)
+    }
+    
+    private func add(project: Project, to cursuses: [Cursus]) {
+        cursuses.forEach {cursus in
+            switch project.validated {
+            case .waiting:
+                cursus.waitingProjects.append(project)
+            case .valid:
+                cursus.finishedProjects.append(project)
+            case .failed:
+                cursus.failedProjects.append(project)
+            }
+        }
+    }
+    
+    private func add(subprojects: [Project], to cursuses: [Cursus]) {
+        subprojects.forEach { project in
+            let cursuses = cursuses.filter({project.cursusID.contains($0.id)})
+            cursuses.forEach({ cursus in
+                let projectsToAdd = (cursus.waitingProjects + cursus.failedProjects + cursus.finishedProjects).filter({project.parentID! == $0.id})
+                for var projectToAdd in projectsToAdd {
+                    projectToAdd.subProjects.append(project)
+                }
+            })
         }
     }
     
     private func createUser(from json: JSON) -> UserData {
         let image = json["image_url"].url
+        let id = json["id"].int
         let name = json["displayname"].string
         let evaluationPoints = json["correction_point"].int
-        let grade = json["cursus_users"][0]["grade"].string
         let campus = json["campus"][0]["name"].string
         let phoneNumber = json["phone"].string
         let email = json["email"].string
-        let level = json["cursus_users"][0]["level"].double
         let cursuses = createCursuses(from: json["cursus_users"])
-        createProjects(from: json["project_users"], for: cursuses)
-        return UserData( name: "1", id: 1, image: URL(string: "1")!, evaluationPoints: 1, cursuses: [Cursus](), campus: "Kampus", phoneNumber: "", email: "")
+        createProjects(from: json["projects_users"], for: cursuses)
+        return UserData( name: name ?? "NoName", id: id ?? 0, image: image, evaluationPoints: evaluationPoints ?? 0, cursuses: cursuses, campus: campus ?? "No Campus", phoneNumber: phoneNumber, email: email)
     }
     private init(){}
 }

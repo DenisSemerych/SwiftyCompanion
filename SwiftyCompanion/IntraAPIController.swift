@@ -19,7 +19,7 @@ class IntraAPIController {
     
     
     //Make request to get token from API
-    func requestToken() {
+    public func requestToken() {
         taskGroup.enter()
         let url: URLConvertible = "https://api.intra.42.fr/oauth/token"
         let bearer = ((userID + ":" + secretKey).data(using: String.Encoding.utf8))!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
@@ -50,7 +50,7 @@ class IntraAPIController {
     }
 
     //Requesting user info from login
-    func requestUserInfo(login: String) {
+    public func requestUserInfo(login: String) {
         let url: URLConvertible = "https://api.intra.42.fr/v2/users/" + login.trimmingCharacters(in: .whitespaces).lowercased()
         let headers = ["Authorization" : "Bearer \(token!)"]
         checkToken(from: headers)

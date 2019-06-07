@@ -12,14 +12,14 @@ class UserData: Item {
     
     var name: String
     var id: Int
-    var image: URL
+    var image: URL?
     var evaluationPoints: Int
     var cursuses: [Cursus]
     var campus: String
     var phoneNumber: String?
     var email: String?
 
-    init(name: String, id: Int, image: URL, evaluationPoints: Int, cursuses: [Cursus], campus: String, phoneNumber: String?, email: String?) {
+    init(name: String, id: Int, image: URL?, evaluationPoints: Int, cursuses: [Cursus], campus: String, phoneNumber: String?, email: String?) {
         self.name = name
         self.id = id
         self.image = image

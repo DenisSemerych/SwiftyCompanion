@@ -15,11 +15,16 @@ enum ValidStatus {
 struct Project: Item {
     
     var name: String
+    var cursusID: [Int]
     var id: Int
-    var isParent: Bool
+    var isParent: Bool {
+        get {
+            return parentID == nil ? true : false
+        }
+    }
     var parentID: Int?
     var finalMark: Int
     var status: String
     var validated: ValidStatus
-    var subProjects = [Project]()
+    var subProjects: [Project]
 }
