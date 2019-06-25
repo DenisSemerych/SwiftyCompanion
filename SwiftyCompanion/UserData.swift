@@ -16,17 +16,21 @@ class UserData: Item {
     var evaluationPoints: Int
     var cursuses: [Cursus]
     var campus: String
-    var phoneNumber: String?
-    var email: String?
+    var wallet: Int
+    var phoneNumber: String
+    var email: String
+    var location: String?
 
-    init(name: String, id: Int, image: URL?, evaluationPoints: Int, cursuses: [Cursus], campus: String, phoneNumber: String?, email: String?) {
+    init(name: String, id: Int, image: URL?, evaluationPoints: Int, cursuses: [Cursus], campus: String, phoneNumber: String?, email: String?, wallet: Int, location: String?) {
         self.name = name
         self.id = id
         self.image = image
         self.evaluationPoints = evaluationPoints
         self.cursuses = cursuses
         self.campus = campus
-        self.phoneNumber = phoneNumber
-        self.email = email
+        self.phoneNumber = phoneNumber ?? "No phone"
+        self.email = email ?? "No mail"
+        self.wallet = wallet
+        self.location = location
     }
 }

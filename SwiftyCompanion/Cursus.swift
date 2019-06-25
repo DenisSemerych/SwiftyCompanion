@@ -10,19 +10,19 @@ import Foundation
 
 class Cursus: Item {
     
-    var id: Int
     var name: String
+    var id: Int
     var skills: [Skill]
     var cursusUserLevel: Double
     var cursusUserGrade: String
     var waitingProjects = [Project]()
-    var finishedProjects = [Project]()
+    var validProjects = [Project]()
     var failedProjects = [Project]()
     
     init(id: Int, name: String, level: Double, skills: [Skill], grade: String?) {
         self.cursusUserGrade = grade ?? "Novice"
         self.cursusUserLevel = level
-        self.id = 1
+        self.id = id
         self.name = name
         self.skills = skills
     }

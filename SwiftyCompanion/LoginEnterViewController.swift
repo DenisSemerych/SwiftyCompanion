@@ -17,6 +17,7 @@ class LoginEnterViewController: UIViewController {
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         intraAPIConroller.requestUserInfo(login: loginSearchField.text!)
+        loginSearchField.resignFirstResponder()
     }
 
     override func viewDidLoad() {
@@ -38,6 +39,13 @@ class LoginEnterViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToLoginInfo" {
+            let destVC = segue.destination as! UserInfoViewController
+            destVC.userData = sender as? UserData
+        }
     }
 }
 
@@ -94,8 +102,7 @@ extension LoginEnterViewController: IntraAPIDelegate {
         switch result {
         case .success:
             let userData = ItemFactory.shared.createUser(from: data!)
-            out(userData: userData)
-            performSegue(withIdentifier: "goToLoginInfo", sender: self)
+            performSegue(withIdentifier: "goToLoginInfo", sender: userData)
         case .noSuchLogin:
             print("Bad login")
         case .requestFailure:
@@ -103,42 +110,42 @@ extension LoginEnterViewController: IntraAPIDelegate {
         }
     }
     
-    func out(userData: UserData) {
-        print(userData.name)
-        print(userData.campus)
-        print(userData.id)
-        print(userData.evaluationPoints)
-        print(userData.campus)
-        print(userData.phoneNumber)
-        print(userData.email)
-        for cursus in userData.cursuses {
-            print(cursus.id, cursus.name, cursus.cursusUserLevel, cursus.cursusUserGrade)
-            for skill in cursus.skills {
-                print(skill.name, skill.level)
-            }
-            for project in cursus.waitingProjects {
-                print(project.name, project.status, project.validated, project.finalMark)
-                for sub in project.subProjects {
-                    print("Sub Projects ________________________________")
-                    print(sub.name, sub.status, sub.validated, sub.finalMark)
-                }
-            }
-            for project in cursus.finishedProjects {
-                print(project.name, project.status, project.validated, project.finalMark)
-                for sub in project.subProjects {
-                    print("Sub Projects ________________________________")
-                    print(sub.name, sub.status, sub.validated, sub.finalMark)
-                }
-            }
-            for project in cursus.failedProjects {
-                print(project.name, project.status, project.validated, project.finalMark)
-                
-                for sub in project.subProjects {
-                    print("Sub Projects ________________________________")
-                    print(sub.name, sub.status, sub.validated, sub.finalMark)
-                }
-            }
-            print("\n")
-        }
-    }
+//    func out(userData: UserData) {
+//        print(userData.name)
+//        print(userData.campus)
+//        print(userData.id)
+//        print(userData.evaluationPoints)
+//        print(userData.campus)
+//        print(userData.phoneNumber)
+//        print(userData.email)
+//        for cursus in userData.cursuses {
+//            print(cursus.id, cursus.name, cursus.cursusUserLevel, cursus.cursusUserGrade)
+//            for skill in cursus.skills {
+//                print(skill.name, skill.level)
+//            }
+//            for project in cursus.waitingProjects {
+//                print(project.name, project.status, project.validated, project.finalMark)
+//                for sub in project.subProjects {
+//                    print("Sub Projects ________________________________")
+//                    print(sub.name, sub.status, sub.validated, sub.finalMark)
+//                }
+//            }
+//            for project in cursus.validProjects {
+//                print(project.name, project.status, project.validated, project.finalMark)
+//                for sub in project.subProjects {
+//                    print("Sub Projects ________________________________")
+//                    print(sub.name, sub.status, sub.validated, sub.finalMark)
+//                }
+//            }
+//            for project in cursus.failedProjects {
+//                print(project.name, project.status, project.validated, project.finalMark)
+//
+//                for sub in project.subProjects {
+//                    print("Sub Projects ________________________________")
+//                    print(sub.name, sub.status, sub.validated, sub.finalMark)
+//                }
+//            }
+//            print("\n")
+//        }
+//    }
 }

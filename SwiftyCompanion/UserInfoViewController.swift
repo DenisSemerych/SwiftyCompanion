@@ -12,7 +12,9 @@ import DDSpiderChart
 
 class UserInfoViewController: UIViewController {
 
-    private var userData: UserData?
+    var userData: UserData?
+    private var cursusToShow: Cursus?
+    var pickerView: UIPickerView?
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var wallet: UILabel!
@@ -30,17 +32,32 @@ class UserInfoViewController: UIViewController {
     
     //presenting UIPicker when choosing cursus
     @IBAction func cursusChooseButtonPressed(_ sender: UIButton) {
-        let picker = UIPickerView()
-        picker.translatesAutoresizingMaskIntoConstraints = false
-        picker.backgroundColor = .black
-        view.addSubview(picker)
-        picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        guard pickerView == nil else {return}
+        pickerView = UIPickerView()
+        pickerView!.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pickerView!)
+        pickerView!.delegate = self
+        pickerView!.dataSource = self
+        pickerView!.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        pickerView!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        pickerView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        pickerView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = UIColor(red: 83/255, green: 183/255, blue: 186, alpha: 1.0)
+        guard let dataToShow = userData else {return}
+        setProfileImage(from: dataToShow.image)
+        wallet.text = "\(wallet.text!): \(dataToShow.wallet)"
+        evaluationPoints.text = "\(evaluationPoints.text!): \(dataToShow.evaluationPoints)"
+        campus.text = "\(campus.text!): \(dataToShow.campus)"
+        phoneNumber.text = "\(dataToShow.phoneNumber)"
+        email.text = "\(dataToShow.email)"
+        if let location = userData?.location {
+            avalibleLocation.text = "Avaliable \n\(location)"
+        } else {
+            avalibleLocation.text = "Unavaliable"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +73,13 @@ extension UserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        return userData?.cursuses.count ?? 0
     }
     
-    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let title = userData?.cursuses[row].name ?? ""
+        return NSAttributedString(string: title, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor:UIColor.blue])
+    }
 }
 
 //Progress Bar methods
@@ -91,6 +111,18 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+}
+
+extension UserInfoViewController {
+    func setProfileImage(from url: URL?) {
+        guard let imageUrl = url else {return}
+        URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
+            guard let data = data, error == nil else {return}
+            DispatchQueue.main.async {[unowned self] in
+                self.profileImage.image = UIImage(data: data)
+            }
+        }.resume()
     }
 }
 

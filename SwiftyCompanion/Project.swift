@@ -12,10 +12,10 @@ enum ValidStatus {
     case valid, failed, waiting
 }
 
-struct Project: Item {
+class Project: Item {
     
     var name: String
-    var cursusID: [Int]
+    var cursusIDs: [Int]
     var id: Int
     var isParent: Bool {
         get {
@@ -27,4 +27,15 @@ struct Project: Item {
     var status: String
     var validated: ValidStatus
     var subProjects: [Project]
+    
+    init(name: String, cursusIDs: [Int], id: Int, parentID: Int?, finalMark: Int, status: String, validated: ValidStatus, subProjects: [Project]) {
+        self.name = name
+        self.cursusIDs = cursusIDs
+        self.id = id
+        self.parentID = parentID
+        self.finalMark = finalMark
+        self.status = status
+        self.validated = validated
+        self.subProjects = subProjects
+    }
 }
