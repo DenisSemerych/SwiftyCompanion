@@ -18,6 +18,9 @@ class Cursus: Item {
     var waitingProjects = [Project]()
     var validProjects = [Project]()
     var failedProjects = [Project]()
+    var allProjects: [Project] {
+        return waitingProjects.sorted(by: {$0.name < $1.name}) + validProjects.sorted(by: {$0.name < $1.name}) + failedProjects.sorted(by: {$0.name < $1.name})
+    }
     
     init(id: Int, name: String, level: Double, skills: [Skill], grade: String?) {
         self.cursusUserGrade = grade ?? "Novice"

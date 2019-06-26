@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum ValidStatus {
-    case valid, failed, waiting
+enum ValidStatus: String {
+    case valid = "Success", failed = "Failed", waiting = "In progress"
 }
 
 class Project: Item {

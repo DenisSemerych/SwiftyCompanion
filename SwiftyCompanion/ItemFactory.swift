@@ -39,7 +39,7 @@ class ItemFactory {
             let level = json["level"].double
             skills.append(Skill(id: id ?? 0, name: name ?? "Wrong Skill", level: level ?? 0.0))
         }
-        return skills
+        return skills.sorted(by: {$0.name > $1.name})
     }
     
     private func createCursuses(from allCursuses: JSON) -> [Cursus] {
