@@ -55,10 +55,18 @@ class IntraAPIController {
         let headers = ["Authorization" : "Bearer \(token!)"]
         checkToken(from: headers)
         Alamofire.request(url, method: .get, headers: headers).response { [weak self] response in
-            print(response.data)
             self?.taskGroup.notify(queue: .main) {
                 self?.delegate?.processRequestResult(result: RequestResult.success, with: response.data)
             }
+        }
+    }
+    
+    public func downloadImageData(from url: URL) {
+        var imageData: Data
+        self.taskGroup.enter()
+        Alamofire.request(url).responseData { data in
+            imageData = data
+            
         }
     }
     

@@ -79,6 +79,7 @@ class UserInfoViewController: UIViewController {
         projectCarousel.dataSource = self
         projectCarousel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         setProfileImage(from: dataToShow.image)
+        navigationItem.title = userData?.name
         wallet.text = "\(wallet.text!): \(dataToShow.wallet)"
         evaluationPoints.text = "Evaluation Points: \(dataToShow.evaluationPoints)"
         campus.text = "Campus: \(dataToShow.campus)"
@@ -184,7 +185,7 @@ extension UserInfoViewController {
     private func setUpSkillChart() {
         guard  let cursus = cursusToShow else {return}
         skillsChart.axes = cursus.skills.map({attributedAxis(lable: $0.name.replacingOccurrences(of: " ", with: "\n"))})
-        skillsChart.addDataSet(values: cursus.skills.map({Float($0.level / 20)}), color: UIColor(red: 85/255, green: 183/255, blue: 186/255, alpha: 1))
+        skillsChart.addDataSet(values: cursus.skills.map({Float($0.level / 15)}), color: UIColor(red: 85/255, green: 183/255, blue: 186/255, alpha: 1))
         skillsChart.circleCount = 10
         skillsChart.circleGap = 12
         skillsChart.color = .white
