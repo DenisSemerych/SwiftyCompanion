@@ -36,6 +36,6 @@ class Project: Item {
         self.finalMark = finalMark
         self.status = status
         self.validated = validated
-        self.subProjects = subProjects
+        self.subProjects = subProjects.sorted(by: {$0.name < $1.name})
     }
 }

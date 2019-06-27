@@ -15,8 +15,10 @@ class UserInfoViewController: UIViewController {
     var userData: UserData?
     private var cursusToShow: Cursus? {
         didSet {
+            guard let cursus = cursusToShow else {return}
             projectCarousel.reloadData()
-            grade.text = "Grade: \(cursusToShow!.cursusUserGrade)"
+            grade.text = "Grade: \(cursus.cursusUserGrade)"
+            self.cursus.setTitle("Cursus \(cursus.name)", for: .normal)
             setUpProgressBar()
             setUpSkillChart()
         }
@@ -25,6 +27,12 @@ class UserInfoViewController: UIViewController {
     private var pickerView: UIPickerView?
     private var submitButton: UIButton?
     private var cancelButton: UIButton?
+    private var isShowingSubprojects = false {
+        didSet {
+            subProjectTable.reloadData()
+        }
+    }
+    private var projectIndex = 0
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var wallet: UILabel!
@@ -77,8 +85,10 @@ class UserInfoViewController: UIViewController {
         mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
         projectCarousel.delegate = self
         projectCarousel.dataSource = self
+        subProjectTable.delegate = self
+        subProjectTable.dataSource = self
         projectCarousel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
-        if let imageURL = dataToShow.image {
+        if let imageURL = dataToShow.imageURL {
             IntraAPIController.shared.downloadImageData(from: imageURL)
         }
         navigationItem.title = userData?.name
@@ -189,7 +199,7 @@ extension UserInfoViewController {
 extension UserInfoViewController {
     private func setUpSkillChart() {
         guard  let cursus = cursusToShow else {return}
-        skillsChart.axes = cursus.skills.map({attributedAxis(lable: $0.name.replacingOccurrences(of: " ", with: "\n"))})
+        skillsChart.axes = cursus.skills.map({attributedAxis(lable: $0.name.replacingOccurrences(of: " ", with: " \n"))})
         skillsChart.addDataSet(values: cursus.skills.map({Float($0.level / 15)}), color: UIColor(red: 85/255, green: 183/255, blue: 186/255, alpha: 1))
         skillsChart.circleCount = 10
         skillsChart.circleGap = 12
@@ -228,16 +238,55 @@ extension UserInfoViewController: UICollectionViewDelegate, UICollectionViewData
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cursus = cursusToShow else {return}
+        if cursus.allProjects[indexPath.row].subProjects.count > 0 {
+            projectIndex = indexPath.row
+            isShowingSubprojects = true
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        isShowingSubprojects = false
+    }
 }
 
 //SubProjectTableView methods
 extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let cursus = cursusToShow, let data = userData {
+           return isShowingSubprojects ? cursus.allProjects[projectIndex].subProjects.count : data.achievements.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cursus = cursusToShow, let data = userData else {return UITableViewCell()}
+        if isShowingSubprojects {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subprojectCell") as! SubprojectCell
+            let project = cursus.allProjects[projectIndex].subProjects[indexPath.row]
+            cell.projectName.text = project.name
+            cell.projectMark.text = "\(project.finalMark)"
+            let color: UIColor
+            switch project.validated {
+            case .failed:
+                color =  UIColor(red: 202/255, green: 106/255, blue: 113/255, alpha: 1)
+            case .valid:
+                color = UIColor(red: 115/255, green: 182/255, blue: 102/255, alpha: 1)
+            case .waiting:
+                color = UIColor(red: 85/255, green: 183/255, blue: 186/255, alpha: 1)
+            }
+            cell.backgroundColor = color
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "achievementCell") as! AchievementCell
+            cell.achievementDescription.text = data.achievements[indexPath.row].description
+            cell.achievementName.text = data.achievements[indexPath.row].name
+            cell.imageStringURL = data.achievements[indexPath.row].stringURL
+            return cell
+        }
     }
 }
 

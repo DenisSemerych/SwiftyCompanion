@@ -6,8 +6,9 @@ target 'SwiftyCompanion' do
   use_frameworks!
 
   # Pods for SwiftyCompanion
-  pod 'Alamofire', '~> 4.0'
-  pod 'SwiftyJSON', '~> 3.0'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
   pod 'GTProgressBar'
   pod 'DDSpiderChart'
+  pod 'SVGKit'
 end

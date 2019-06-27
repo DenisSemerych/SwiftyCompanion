@@ -26,8 +26,8 @@ class ItemFactory {
     
     static let shared = ItemFactory()
     
-    public func createUser(from data: Data) -> UserData {
-        let json = JSON(data: data)
+    public func createUser(from data: Data) -> UserData? {
+        guard let json = try? JSON(data: data) else {return nil}
         return createUser(from: json)
     }
     
@@ -53,6 +53,18 @@ class ItemFactory {
             cursuses.append(Cursus(id: cursusID ?? 0, name: cursusName ?? "Wrong Cursus", level: level ?? 0.0, skills: skills, grade: grade))
         }
         return cursuses
+    }
+    
+    private func createAchievements(from allAchievements: JSON) -> [Achievement] {
+        var achievements = [Achievement]()
+        allAchievements.forEach { index, json in
+            let name = json["name"].string
+            let id = json["id"].int
+            let description = json["description"].string
+            let stringURL = json["image"].string
+            achievements.append(Achievement(name: name ?? "No name", id: id ?? 0, description: description ?? "No description", stringURL: stringURL ?? ""))
+        }
+        return achievements
     }
     
     private func createProjects(from json: JSON, for cursuses: [Cursus]) {
@@ -115,8 +127,9 @@ class ItemFactory {
         let wallet = json["wallet"].int
         let location = json["location"].string
         let cursuses = createCursuses(from: json["cursus_users"])
+        let achievements = createAchievements(from: json["achievements"])
         createProjects(from: json["projects_users"], for: cursuses)
-        return UserData( name: name ?? "NoName", id: id ?? 0, image: image, evaluationPoints: evaluationPoints ?? 0, cursuses: cursuses, campus: campus ?? "No Campus", phoneNumber: phoneNumber, email: email, wallet: wallet ?? 0, location: location)
+        return UserData( name: name ?? "NoName", id: id ?? 0, image: image, evaluationPoints: evaluationPoints ?? 0, cursuses: cursuses, campus: campus ?? "No Campus", phoneNumber: phoneNumber, email: email, wallet: wallet ?? 0, location: location, achievements: achievements)
     }
     
     private init(){}

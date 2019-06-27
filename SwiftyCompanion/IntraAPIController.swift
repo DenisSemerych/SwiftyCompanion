@@ -72,6 +72,14 @@ class IntraAPIController {
         }
     }
     
+    public func giveRequestForSVGDownload(from stringURL: String?) -> URLRequest? {
+        guard let string = stringURL else {return nil}
+        let fullURL = "https://api.intra.42.fr" + string
+        guard let url = URL(string: fullURL) else {return nil}
+        let request = URLRequest(url: url)
+        return request
+    }
+    
    private init() {
         self.requestToken()
     }
