@@ -10,19 +10,17 @@ import UIKit
 
 class LoginEnterViewController: UIViewController {
 
-    private var intraAPIConroller = IntraAPIController()
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loginSearchField: UITextField!
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        intraAPIConroller.requestUserInfo(login: loginSearchField.text!)
+        IntraAPIController.shared.requestUserInfo(login: loginSearchField.text!)
         loginSearchField.resignFirstResponder()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        intraAPIConroller.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +32,7 @@ class LoginEnterViewController: UIViewController {
         loginSearchField.layer.borderColor  = UIColor(red: 85/255, green: 183/255, blue: 186/255, alpha: 1).cgColor
         self.navigationController?.navigationBar.barStyle = .blackOpaque
         self.navigationController?.navigationBar.isHidden = true
+        IntraAPIController.shared.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,6 +106,8 @@ extension LoginEnterViewController: IntraAPIDelegate {
             print("Bad login")
         case .requestFailure:
             print("Fail to send")
+        default:
+            break
         }
     }
     

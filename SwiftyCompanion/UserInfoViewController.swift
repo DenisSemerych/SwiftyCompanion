@@ -78,7 +78,9 @@ class UserInfoViewController: UIViewController {
         projectCarousel.delegate = self
         projectCarousel.dataSource = self
         projectCarousel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
-        setProfileImage(from: dataToShow.image)
+        if let imageURL = dataToShow.image {
+            IntraAPIController.shared.downloadImageData(from: imageURL)
+        }
         navigationItem.title = userData?.name
         wallet.text = "\(wallet.text!): \(dataToShow.wallet)"
         evaluationPoints.text = "Evaluation Points: \(dataToShow.evaluationPoints)"
@@ -92,7 +94,10 @@ class UserInfoViewController: UIViewController {
         }
         cursusToShow = dataToShow.cursuses.first
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+         IntraAPIController.shared.delegate = self
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -236,15 +241,16 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension UserInfoViewController {
-    private func setProfileImage(from url: URL?) {
-        guard let imageUrl = url else {return}
-        URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
-            guard let data = data, error == nil else {return}
-            DispatchQueue.main.async {[unowned self] in
-                self.profileImage.image = UIImage(data: data)
-            }
-        }.resume()
+extension UserInfoViewController: IntraAPIDelegate {
+    
+    func processRequestResult(result: RequestResult, with data: Data?) {
+        guard  let imageData = data else {return}
+        switch result {
+        case .imageDataDownloaded:
+            self.profileImage.image = UIImage(data: imageData)
+        default:
+            break
+        }
     }
 }
 

@@ -11,6 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class IntraAPIController {
+    
+    public static let shared = IntraAPIController()
+    
     private var userID = "faf77e26c88d7eb346b286661a323b4e9b82abc46d3a3a21ca2937eefa1703de"
     private var secretKey =  "a92c30817af0819c05513568f92babc2e3bf7dda6d9f9aa7f0cc3dd8eb3c8090"
     private var token: String?
@@ -54,23 +57,22 @@ class IntraAPIController {
         let url: URLConvertible = "https://api.intra.42.fr/v2/users/" + login.trimmingCharacters(in: .whitespaces).lowercased()
         let headers = ["Authorization" : "Bearer \(token!)"]
         checkToken(from: headers)
-        Alamofire.request(url, method: .get, headers: headers).response { [weak self] response in
-            self?.taskGroup.notify(queue: .main) {
-                self?.delegate?.processRequestResult(result: RequestResult.success, with: response.data)
+        Alamofire.request(url, method: .get, headers: headers).response { [unowned self] response in
+            self.taskGroup.notify(queue: .main) {
+                self.delegate?.processRequestResult(result: RequestResult.success, with: response.data)
             }
         }
     }
     
     public func downloadImageData(from url: URL) {
-        var imageData: Data
-        self.taskGroup.enter()
-        Alamofire.request(url).responseData { data in
-            imageData = data
-            
+        Alamofire.request(url, method: .get).response { [unowned self] response in
+            self.taskGroup.notify(queue: .main) {
+                self.delegate?.processRequestResult(result: .imageDataDownloaded, with: response.data)
+            }
         }
     }
     
-    init() {
+   private init() {
         self.requestToken()
     }
 }

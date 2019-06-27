@@ -13,4 +13,5 @@ enum RequestResult: String {
     case requestFailure = "Coudn`t send request"
     case success = "OK"
     case noSuchLogin = "No such login in Intra42"
+    case imageDataDownloaded = "Image Data Downloaded"
 }
