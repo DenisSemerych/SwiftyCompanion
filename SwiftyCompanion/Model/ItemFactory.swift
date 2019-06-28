@@ -27,7 +27,7 @@ class ItemFactory {
     static let shared = ItemFactory()
     
     public func createUser(from data: Data) -> UserData? {
-        guard let json = try? JSON(data: data) else {return nil}
+        guard let json = try? JSON(data: data), !json.isEmpty else {return nil}
         return createUser(from: json)
     }
     

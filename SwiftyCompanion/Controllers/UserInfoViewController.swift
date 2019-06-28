@@ -21,6 +21,7 @@ class UserInfoViewController: UIViewController {
             self.cursus.setTitle("Cursus \(cursus.name)", for: .normal)
             setUpProgressBar()
             setUpSkillChart()
+            isShowingSubprojects = false
         }
     }
     private var pickerPresenterView: UIView?
@@ -48,6 +49,47 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var projectCarousel: UICollectionView!
     @IBOutlet weak var subProjectTable: UITableView!
     @IBOutlet weak var levelLable: UILabel!
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let dataToShow = userData else {return}
+        mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+        projectCarousel.delegate = self
+        projectCarousel.dataSource = self
+        subProjectTable.delegate = self
+        subProjectTable.dataSource = self
+        projectCarousel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        if let imageURL = dataToShow.imageURL {
+            IntraAPIController.shared.downloadImageData(from: imageURL)
+        }
+        navigationItem.title = userData?.name
+        wallet.text = "\(wallet.text!): \(dataToShow.wallet)"
+        evaluationPoints.text = "Evaluation Points: \(dataToShow.evaluationPoints)"
+        campus.text = "Campus: \(dataToShow.campus)"
+        phoneNumber.text = "\(dataToShow.phoneNumber)"
+        email.text = "\(dataToShow.email)"
+        if let location = userData?.location {
+            avalibleLocation.text = "Avaliable \n\(location)"
+        } else {
+            avalibleLocation.text = "Unavaliable"
+        }
+        cursusToShow = dataToShow.cursuses.first
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         IntraAPIController.shared.delegate = self
+         AlertPresenter.shared.delegate = self
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
+
+
+//PickerView methods
+extension UserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     //presenting UIPicker when choosing cursus
     @IBAction func cursusChooseButtonPressed(_ sender: UIButton) {
@@ -79,44 +121,6 @@ class UserInfoViewController: UIViewController {
         submitButton = nil
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        guard let dataToShow = userData else {return}
-        mainView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
-        projectCarousel.delegate = self
-        projectCarousel.dataSource = self
-        subProjectTable.delegate = self
-        subProjectTable.dataSource = self
-        projectCarousel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
-        if let imageURL = dataToShow.imageURL {
-            IntraAPIController.shared.downloadImageData(from: imageURL)
-        }
-        navigationItem.title = userData?.name
-        wallet.text = "\(wallet.text!): \(dataToShow.wallet)"
-        evaluationPoints.text = "Evaluation Points: \(dataToShow.evaluationPoints)"
-        campus.text = "Campus: \(dataToShow.campus)"
-        phoneNumber.text = "\(dataToShow.phoneNumber)"
-        email.text = "\(dataToShow.email)"
-        if let location = userData?.location {
-            avalibleLocation.text = "Avaliable \n\(location)"
-        } else {
-            avalibleLocation.text = "Unavaliable"
-        }
-        cursusToShow = dataToShow.cursuses.first
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-         IntraAPIController.shared.delegate = self
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-}
-
-
-//PickerView methods
-extension UserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
     //presenting PickerPresenterView and PickerView
     private func presentPickerView() {
         pickerPresenterView = UIView()
@@ -125,7 +129,7 @@ extension UserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         pickerPresenterView!.addSubview(pickerView!)
         pickerView?.delegate = self
         pickerView?.dataSource = self
-        pickerView?.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        pickerView?.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.8)
         createButtons()
         setConstrains()
     }
@@ -137,12 +141,12 @@ extension UserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         cancelButton = UIButton()
         cancelButton?.setTitle("Cancel", for: .normal)
         submitButton?.setTitle("Submit", for: .normal)
-        cancelButton?.setTitleColor(UIColor(red: 202/255, green: 106/255, blue: 113/255, alpha: 1), for: .normal)
-        submitButton?.setTitleColor(UIColor(red: 85/255, green: 183/255, blue: 186/255, alpha: 1), for: .normal)
+        cancelButton?.setTitleColor(.white, for: .normal)
+        submitButton?.setTitleColor(.white, for: .normal)
         cancelButton?.addTarget(self, action: #selector(cancelChoosing), for: .touchUpInside)
         submitButton?.addTarget(self, action: #selector(chooseCursus), for: .touchUpInside)
-        submitButton?.backgroundColor = pickerView!.backgroundColor
-        cancelButton?.backgroundColor = pickerView!.backgroundColor
+        submitButton?.backgroundColor = UIColor(red: 115/255, green: 182/255, blue: 102/255, alpha: 0.8)
+        cancelButton?.backgroundColor = UIColor(red: 202/255, green: 106/255, blue: 113/255, alpha: 0.8)
         pickerPresenterView?.addSubview(submitButton!)
         pickerPresenterView?.addSubview(cancelButton!)
     }
@@ -165,6 +169,7 @@ extension UserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         submitButton?.trailingAnchor.constraint(equalTo: pickerPresenterView!.safeAreaLayoutGuide.trailingAnchor).isActive = true
         submitButton?.topAnchor.constraint(equalTo: pickerPresenterView!.safeAreaLayoutGuide.topAnchor).isActive = true
         submitButton?.bottomAnchor.constraint(equalTo: pickerView!.safeAreaLayoutGuide.topAnchor).isActive = true
+        submitButton?.leadingAnchor.constraint(equalTo: cancelButton!.safeAreaLayoutGuide.trailingAnchor).isActive = true 
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -295,10 +300,10 @@ extension UserInfoViewController: IntraAPIDelegate {
     func processRequestResult(result: RequestResult, with data: Data?) {
         guard  let imageData = data else {return}
         switch result {
-        case .imageDataDownloaded:
+        case .success:
             self.profileImage.image = UIImage(data: imageData)
-        default:
-            break
+        case .requestFailure:
+            AlertPresenter.shared.presentAlert(withTitle: result.rawValue)
         }
     }
 }

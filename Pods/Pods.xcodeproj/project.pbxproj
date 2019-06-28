@@ -382,8 +382,8 @@
 		00C90606270F70A8EEDADF03E16090CB /* SVGStyleElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGStyleElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGStyleElement.h"; sourceTree = "<group>"; };
 		033F2E5D8C8B1EB58C8F58F2247D19D1 /* Pods-SwiftyCompanion-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyCompanion-frameworks.sh"; sourceTree = "<group>"; };
 		05368A33F10DD75C3C6BD795BD2E6868 /* SVGGroupElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGGroupElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGGroupElement.h"; sourceTree = "<group>"; };
-		0540266CF2C5FBE1D2BDAFE55ECFB0CF /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftyCompanion.framework; path = "Pods-SwiftyCompanion.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		066D3757F5091A445702A0EB693C4B46 /* DDSpiderChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DDSpiderChart.framework; path = DDSpiderChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0540266CF2C5FBE1D2BDAFE55ECFB0CF /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		066D3757F5091A445702A0EB693C4B46 /* DDSpiderChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DDSpiderChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07192EF497395B8EEC8C9C7D56BE4321 /* SVGKSourceURL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKSourceURL.h; path = Source/Sources/SVGKSourceURL.h; sourceTree = "<group>"; };
 		077606F1DA0D71248716155B35ECD27C /* SVGStylable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGStylable.h; path = "Source/DOM classes/SVG-DOM/SVGStylable.h"; sourceTree = "<group>"; };
 		07E59D5ED20B4808FAABE82AD1F6CA91 /* SVGPathElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGPathElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGPathElement.h"; sourceTree = "<group>"; };
@@ -535,7 +535,7 @@
 		70FC5AA18519970F6390F12ABEF6967D /* SVGElementInstanceList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGElementInstanceList.m; path = "Source/DOM classes/SVG-DOM/SVGElementInstanceList.m"; sourceTree = "<group>"; };
 		733827F4CEE50CA7DF9FB5BA0DE68779 /* Document.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Document.h; path = "Source/DOM classes/Core DOM/Document.h"; sourceTree = "<group>"; };
 		73E19D40B542891F502F75BE57AC8D6C /* GTProgressBarLabelPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GTProgressBarLabelPosition.swift; path = GTProgressBar/Classes/GTProgressBarLabelPosition.swift; sourceTree = "<group>"; };
-		76DA0A81C8C55A010C204F31CC7AF615 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76DA0A81C8C55A010C204F31CC7AF615 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77503387C7F6664463F566EEBF54F1AD /* SVGKFastImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKFastImageView.m; path = "Source/UIKit additions/SVGKFastImageView.m"; sourceTree = "<group>"; };
 		783B51C21FF44EA9083A7519CBEEAF13 /* SVGKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVGKit-prefix.pch"; sourceTree = "<group>"; };
 		7881D3F72BA6D6DB3D166910BBE84139 /* SVGKParserGradient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKParserGradient.h; path = "Source/Parsers/Parser Extensions/SVGKParserGradient.h"; sourceTree = "<group>"; };
@@ -572,7 +572,7 @@
 		90E66A771EFBF6D7BFF89226C60C402D /* SVGGradientElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGGradientElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGGradientElement.m"; sourceTree = "<group>"; };
 		9136D57274676513A0D68BA3A4460DDF /* SVGViewSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGViewSpec.h; path = "Source/DOM classes/SVG-DOM/SVGViewSpec.h"; sourceTree = "<group>"; };
 		9202064CAAFB949D24415F5B9D8207E2 /* SVGPolygonElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGPolygonElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGPolygonElement.m"; sourceTree = "<group>"; };
-		930B462D4735AC2C95949ECA4374F900 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaLumberjack.framework; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		930B462D4735AC2C95949ECA4374F900 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C9D80CFE684A884E1EEEF09BFBB1D8 /* NamedNodeMap_Iterable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NamedNodeMap_Iterable.h; path = "Source/DOM classes/Core DOM/NamedNodeMap_Iterable.h"; sourceTree = "<group>"; };
 		955F4BABF657F449C8FF9ECBBE6C16A7 /* DDMultiFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDMultiFormatter.h; path = Classes/Extensions/DDMultiFormatter.h; sourceTree = "<group>"; };
 		97060AAC961D84C81474E22FAFEF8670 /* DDASLLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = Classes/DDASLLogger.h; sourceTree = "<group>"; };
@@ -583,7 +583,7 @@
 		98F0B15C34B395515A7E5AF2EF205078 /* DDASLLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = Classes/DDASLLogger.m; sourceTree = "<group>"; };
 		9C500A9286639AB55F34514562A51774 /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = GTProgressBar/Classes/UIViewExtensions.swift; sourceTree = "<group>"; };
 		9D42AB92C433EB5FA6927CDABB182587 /* CSSPrimitiveValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSPrimitiveValue.h; path = "Source/DOM classes/Core DOM/CSSPrimitiveValue.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E10F3F69F8342D51A64136D1D496576 /* CGPathAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGPathAdditions.m; path = "Source/QuartzCore additions/CGPathAdditions.m"; sourceTree = "<group>"; };
 		9F0B9C28901706C81DA98067780413F6 /* DDFileLogger+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDFileLogger+Internal.h"; path = "Classes/DDFileLogger+Internal.h"; sourceTree = "<group>"; };
 		A03B98583FE4B7495F4E7D925118347F /* DrawableString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DrawableString.swift; path = DDSpiderChart/Classes/DrawableString.swift; sourceTree = "<group>"; };
@@ -614,7 +614,7 @@
 		ADC13F422D7F276BFB60B47B3831F28F /* SVGHelperUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGHelperUtilities.m; path = "Source/DOM classes/SVG-DOM/SVGHelperUtilities.m"; sourceTree = "<group>"; };
 		AE359B4DA3B1D48451F8E8EEE323C0ED /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		AF791E566A34A88B81D2116B1230AE31 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		AFA1BB0DD02F221C2E916755B273F9BC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFA1BB0DD02F221C2E916755B273F9BC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1FFE1BC5B6A294ACF2DAE63076B71D4 /* SVGKImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKImage.m; path = Source/SVGKImage.m; sourceTree = "<group>"; };
 		B207A1B69DCAEBCFCFE7397EFCB9B359 /* SVGElementInstanceList_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGElementInstanceList_Internal.h; path = "Source/DOM classes/SVG-DOM/SVGElementInstanceList_Internal.h"; sourceTree = "<group>"; };
 		B3DB48EF27A1ED85959F62D886EACB56 /* StyleSheetList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = StyleSheetList.h; path = "Source/DOM classes/Core DOM/StyleSheetList.h"; sourceTree = "<group>"; };
@@ -625,7 +625,7 @@
 		B7210D14094B3926EEF51F51A4EF6771 /* SVGKParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKParser.m; path = Source/Parsers/SVGKParser.m; sourceTree = "<group>"; };
 		B7AED9C950BDEBD89AE21FB818F010C2 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAbstractDatabaseLogger.h; path = Classes/DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		B7EA0174AB4917A09F374DD2DEFE933B /* SVGRect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGRect.h; path = "Source/DOM classes/SVG-DOM/SVGRect.h"; sourceTree = "<group>"; };
-		B7FFF750DBED29DED148F52DBE71CECA /* SVGKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SVGKit.framework; path = SVGKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7FFF750DBED29DED148F52DBE71CECA /* SVGKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVGKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80C7161CAAAFE3DF3004FE16C6F8F4C /* SVGAngle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGAngle.h; path = "Source/DOM classes/SVG-DOM/SVGAngle.h"; sourceTree = "<group>"; };
 		B8AC503634219BE24FA3EDBF19B90CBC /* DocumentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DocumentType.h; path = "Source/DOM classes/Core DOM/DocumentType.h"; sourceTree = "<group>"; };
 		B8DA3FA7151B0658829F0BC961FA1316 /* SVGKSourceLocalFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKSourceLocalFile.m; path = Source/Sources/SVGKSourceLocalFile.m; sourceTree = "<group>"; };
@@ -714,7 +714,7 @@
 		F68B0AE58489CD686D7B056E8417E13B /* SVGRadialGradientElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGRadialGradientElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGRadialGradientElement.h"; sourceTree = "<group>"; };
 		F724FED92583E7F4EA1DB9F1AB2AC343 /* SVGKParserStyles.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKParserStyles.m; path = "Source/Parsers/Parser Extensions/SVGKParserStyles.m"; sourceTree = "<group>"; };
 		F728F9917D2252DB4D98E8A96672090C /* SVGPoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGPoint.m; path = "Source/DOM classes/SVG-DOM/SVGPoint.m"; sourceTree = "<group>"; };
-		F7830DAA848C23E1320056DF1415E399 /* GTProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTProgressBar.framework; path = GTProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7830DAA848C23E1320056DF1415E399 /* GTProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B5DDD10C8FD9E08B54FE6C5D5A7F19 /* CLIColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLIColor.m; path = Classes/CLI/CLIColor.m; sourceTree = "<group>"; };
 		F8AE2CD3C5400782DC9CC4D9ACA22E77 /* SVGKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKit.m; path = Source/SVGKit.m; sourceTree = "<group>"; };
 		F8B0F9ABB9B121EEC6B53B229E39E43B /* CSSStyleRule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSStyleRule.m; path = "Source/DOM classes/Core DOM/CSSStyleRule.m"; sourceTree = "<group>"; };
@@ -818,7 +818,6 @@
 				278F986402B470ABFB62C81FF08DBEE4 /* VerticalLabelPositionFrameCalculator.swift */,
 				7BFA84B2E98E2890118F8B234FF1B0D1 /* Support Files */,
 			);
-			name = GTProgressBar;
 			path = GTProgressBar;
 			sourceTree = "<group>";
 		};
@@ -983,7 +982,6 @@
 				635903710688F17532EA8EA2A94B36C7 /* Validation.swift */,
 				A9BB9E50DFCCAB6FCD15B2F9B9EBC193 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1223,7 +1221,6 @@
 				603CB6F8D0BC73355A632FAD51BBBEAF /* TinySVGTextAreaElement.m */,
 				F6A3B40E4BF4E271215A67910B6FFAD5 /* Support Files */,
 			);
-			name = SVGKit;
 			path = SVGKit;
 			sourceTree = "<group>";
 		};
@@ -1247,7 +1244,6 @@
 				6D287F991B707750D68F8574B67934F3 /* Core */,
 				365DD509134140422CFCC1A73ACC4C6B /* Support Files */,
 			);
-			name = CocoaLumberjack;
 			path = CocoaLumberjack;
 			sourceTree = "<group>";
 		};
@@ -1257,7 +1253,6 @@
 				F2F27542A681879476A2CDE776FC29AE /* SwiftyJSON.swift */,
 				3E793E232F1CC4AE5333DCCA5613674E /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -1290,7 +1285,6 @@
 				A03B98583FE4B7495F4E7D925118347F /* DrawableString.swift */,
 				7DF579766832E83DEBB36828C7AE728A /* Support Files */,
 			);
-			name = DDSpiderChart;
 			path = DDSpiderChart;
 			sourceTree = "<group>";
 		};
@@ -1665,14 +1659,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 503FFE3FFBBD54FDA320E0A464327DA2 /* Products */;
@@ -1996,7 +1991,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E75172FD0FDB06E31F62FF1C2D193E6 /* DDSpiderChart.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2029,7 +2023,6 @@
 			baseConfigurationReference = 28C4B3FD22A9C6A7DF905755337C1CFA /* Pods-SwiftyCompanion.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2063,7 +2056,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7393D874FA1FF07ED520B250A71051F /* SwiftyJSON.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2096,6 +2088,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2160,7 +2153,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3D58FA0F96876F4F0053AE6BEB9419E /* Alamofire.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2193,7 +2185,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECDE483CE055E2749F0441BF717F6D4A /* CocoaLumberjack.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2226,7 +2217,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BE51B3491D3FAB2645FEF2333E25A38 /* SVGKit.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2259,7 +2249,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7393D874FA1FF07ED520B250A71051F /* SwiftyJSON.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2291,7 +2280,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3D58FA0F96876F4F0053AE6BEB9419E /* Alamofire.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2324,7 +2312,6 @@
 			baseConfigurationReference = 53DCF7C64E2BDFEC80C65A462F7264A7 /* Pods-SwiftyCompanion.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2359,7 +2346,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C4BE6F41A3F701AE39B896D28C825A6F /* GTProgressBar.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2392,6 +2378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2441,8 +2428,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -2452,7 +2438,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E75172FD0FDB06E31F62FF1C2D193E6 /* DDSpiderChart.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2485,7 +2470,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECDE483CE055E2749F0441BF717F6D4A /* CocoaLumberjack.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2517,7 +2501,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BE51B3491D3FAB2645FEF2333E25A38 /* SVGKit.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2549,7 +2532,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C4BE6F41A3F701AE39B896D28C825A6F /* GTProgressBar.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

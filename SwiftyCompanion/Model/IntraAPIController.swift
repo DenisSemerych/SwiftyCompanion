@@ -22,17 +22,27 @@ class IntraAPIController {
     
     
     //Make request to get token from API
-    public func requestToken() {
+    private func requestToken() {
         taskGroup.enter()
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            self.token = token
+            taskGroup.leave()
+        } else {getNewToken()}
+    }
+    
+    private func getNewToken() {
         let url: URLConvertible = "https://api.intra.42.fr/oauth/token"
         let bearer = ((userID + ":" + secretKey).data(using: String.Encoding.utf8))!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let headers = ["Authorization" : "Basic \(bearer)"]
         let parameters = ["grant_type" : "client_credentials", "client_id" : userID,  "client_secret" : secretKey]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON() {[weak self] response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON() {[unowned self] response in
             let responceData = response.value as! NSDictionary
-            self?.token = responceData.value(forKey: "access_token") as? String
-            print(self?.token)
-            self?.taskGroup.leave()
+            if let token = responceData.value(forKey: "access_token") as? String {
+                self.token = token
+                UserDefaults.standard.set(token, forKey: "token")
+            }
+           // print(self.token)
+            self.taskGroup.leave()
         }
     }
     
@@ -40,15 +50,14 @@ class IntraAPIController {
     private func checkToken(from auth: [String:String]) {
         taskGroup.enter()
         let url: URLConvertible = "https://api.intra.42.fr/oauth/token/info"
-        Alamofire.request(url, method: .get, headers: auth).response {[weak self] response in
+        Alamofire.request(url, method: .get, headers: auth).response {[unowned self] response in
             switch response.response!.statusCode {
             case 200:
                 break
             default:
-                //recreate if expire
-                self?.requestToken()
+                self.getNewToken()
             }
-            self?.taskGroup.leave()
+            self.taskGroup.leave()
         }
     }
 
@@ -59,7 +68,13 @@ class IntraAPIController {
         checkToken(from: headers)
         Alamofire.request(url, method: .get, headers: headers).response { [unowned self] response in
             self.taskGroup.notify(queue: .main) {
-                self.delegate?.processRequestResult(result: RequestResult.success, with: response.data)
+                let requestResult: RequestResult
+                if response.error == nil {
+                    requestResult = .success
+                } else {
+                    requestResult = .requestFailure
+                }
+                self.delegate?.processRequestResult(result: requestResult, with: response.data)
             }
         }
     }
@@ -67,7 +82,13 @@ class IntraAPIController {
     public func downloadImageData(from url: URL) {
         Alamofire.request(url, method: .get).response { [unowned self] response in
             self.taskGroup.notify(queue: .main) {
-                self.delegate?.processRequestResult(result: .imageDataDownloaded, with: response.data)
+                let requestResult: RequestResult
+                if response.error == nil {
+                    requestResult = .success
+                } else {
+                    requestResult = .requestFailure
+                }
+                self.delegate?.processRequestResult(result: requestResult, with: response.data)
             }
         }
     }

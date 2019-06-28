@@ -33,6 +33,7 @@ class LoginEnterViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = .blackOpaque
         self.navigationController?.navigationBar.isHidden = true
         IntraAPIController.shared.delegate = self
+        AlertPresenter.shared.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -87,66 +88,21 @@ extension LoginEnterViewController: UITextFieldDelegate {
     private func changePlaceholderFont() {
         let atributes = [
             NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5),
-            NSAttributedString.Key.font : UIFont(name: "Baskerville-Italic", size: 18)!
+            NSAttributedString.Key.font : UIFont(name: "Baskerville", size: 15)!
         ]
         loginSearchField.attributedPlaceholder = NSAttributedString(string: "Enter Intra 42 login", attributes: atributes)
     }
-    
-    
-    
 }
 
 extension LoginEnterViewController: IntraAPIDelegate {
     func processRequestResult(result: RequestResult, with data: Data?) {
         switch result {
         case .success:
-            let userData = ItemFactory.shared.createUser(from: data!)
+            guard let userData = ItemFactory.shared.createUser(from: data!) else {AlertPresenter.shared.presentAlert(withTitle: "No such user in Intra42"); return}
             performSegue(withIdentifier: "goToLoginInfo", sender: userData)
-        case .noSuchLogin:
-            print("Bad login")
         case .requestFailure:
-            print("Fail to send")
-        default:
-            break
+            AlertPresenter.shared.presentAlert(withTitle: result.rawValue)
         }
     }
     
-//    func out(userData: UserData) {
-//        print(userData.name)
-//        print(userData.campus)
-//        print(userData.id)
-//        print(userData.evaluationPoints)
-//        print(userData.campus)
-//        print(userData.phoneNumber)
-//        print(userData.email)
-//        for cursus in userData.cursuses {
-//            print(cursus.id, cursus.name, cursus.cursusUserLevel, cursus.cursusUserGrade)
-//            for skill in cursus.skills {
-//                print(skill.name, skill.level)
-//            }
-//            for project in cursus.waitingProjects {
-//                print(project.name, project.status, project.validated, project.finalMark)
-//                for sub in project.subProjects {
-//                    print("Sub Projects ________________________________")
-//                    print(sub.name, sub.status, sub.validated, sub.finalMark)
-//                }
-//            }
-//            for project in cursus.validProjects {
-//                print(project.name, project.status, project.validated, project.finalMark)
-//                for sub in project.subProjects {
-//                    print("Sub Projects ________________________________")
-//                    print(sub.name, sub.status, sub.validated, sub.finalMark)
-//                }
-//            }
-//            for project in cursus.failedProjects {
-//                print(project.name, project.status, project.validated, project.finalMark)
-//
-//                for sub in project.subProjects {
-//                    print("Sub Projects ________________________________")
-//                    print(sub.name, sub.status, sub.validated, sub.finalMark)
-//                }
-//            }
-//            print("\n")
-//        }
-//    }
 }

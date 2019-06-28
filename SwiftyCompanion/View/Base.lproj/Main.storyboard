@@ -21,13 +21,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="l8p-4H-xA6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <textField contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="line" placeholder=" " minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jff-wx-WgC">
-                                <rect key="frame" x="62.5" y="321" width="250" height="25"/>
+                            <textField contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" borderStyle="line" placeholder=" Enter User Login" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jff-wx-WgC">
+                                <rect key="frame" x="62.5" y="322.5" width="250" height="22"/>
                                 <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="0pC-yz-SBs"/>
                                 </constraints>
-                                <attributedString key="attributedText"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
@@ -39,23 +40,17 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Rc-1O-Tp8">
-                                <rect key="frame" x="130.5" y="177" width="114" height="114"/>
+                                <rect key="frame" x="130.5" y="178.5" width="114" height="114"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEs-5t-7wp">
-                                <rect key="frame" x="100" y="366" width="175" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEs-5t-7wp">
+                                <rect key="frame" x="100" y="364.5" width="175" height="36"/>
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.71764705882352942" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="ahL-vw-gm9"/>
                                 </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="SEARCH">
-                                            <attributes>
-                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="20" name="Baskerville-Bold"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="SEARCH">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9z0-Bo-Mgd"/>
@@ -283,7 +278,7 @@
                                                     <action selector="cursusChooseButtonPressed:" destination="MDu-du-M9g" eventType="touchUpInside" id="b4j-gq-9l2"/>
                                                 </connections>
                                             </button>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L1I-9q-WCT">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L1I-9q-WCT">
                                                 <rect key="frame" x="8" y="954" width="359" height="240"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.099957191780821922" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
