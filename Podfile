@@ -10,5 +10,4 @@ target 'SwiftyCompanion' do
   pod 'SwiftyJSON'
   pod 'GTProgressBar'
   pod 'DDSpiderChart'
-  pod 'SVGKit'
 end
