@@ -10,6 +10,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var subProjectsIcon: UIImageView!
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var projectStatus: UILabel!
     @IBOutlet weak var projectMark: UILabel!

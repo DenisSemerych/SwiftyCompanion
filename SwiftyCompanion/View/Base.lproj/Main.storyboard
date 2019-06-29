@@ -56,6 +56,9 @@
                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9z0-Bo-Mgd"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0an-Hq-EZM">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -66,15 +69,18 @@
                             <constraint firstItem="l8p-4H-xA6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IF2-lT-BtK"/>
                             <constraint firstItem="iEs-5t-7wp" firstAttribute="top" secondItem="jff-wx-WgC" secondAttribute="bottom" constant="20" id="Uk9-6p-OnY"/>
                             <constraint firstItem="1Rc-1O-Tp8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bYp-mO-Jry"/>
+                            <constraint firstItem="0an-Hq-EZM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cSN-LL-Emr"/>
                             <constraint firstItem="l8p-4H-xA6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fDf-XJ-noc"/>
                             <constraint firstItem="iEs-5t-7wp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mTO-Po-ddv"/>
                             <constraint firstItem="l8p-4H-xA6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mh3-jf-uR5"/>
+                            <constraint firstItem="0an-Hq-EZM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w9Z-FM-3Xt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="10w-Nr-Oed"/>
                     <connections>
                         <outlet property="imageView" destination="1Rc-1O-Tp8" id="VBe-4v-dai"/>
+                        <outlet property="loadingIndicator" destination="0an-Hq-EZM" id="jtq-ep-SfL"/>
                         <outlet property="loginSearchField" destination="jff-wx-WgC" id="kIc-Oh-DnN"/>
                         <outlet property="searchDisplayController" destination="AHR-w3-gtB" id="3zM-R4-5KU"/>
                         <segue destination="MDu-du-M9g" kind="show" identifier="goToLoginInfo" id="PeC-z4-mB4"/>
@@ -241,23 +247,30 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-list-50" translatesAutoresizingMaskIntoConstraints="NO" id="KgP-pa-eAs">
+                                                                    <rect key="frame" x="126" y="0.0" width="50" height="40"/>
+                                                                </imageView>
                                                             </subviews>
                                                         </view>
                                                         <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailingMargin" secondItem="vOG-nR-oWg" secondAttribute="trailing" constant="12" id="92N-rT-EUJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="KgP-pa-eAs" secondAttribute="trailing" id="BaO-5p-NnP"/>
                                                             <constraint firstAttribute="bottomMargin" secondItem="vOG-nR-oWg" secondAttribute="bottom" constant="12" id="CKM-ND-gVl"/>
+                                                            <constraint firstItem="829-QP-cbm" firstAttribute="top" secondItem="KgP-pa-eAs" secondAttribute="bottom" id="H33-qG-sUA"/>
                                                             <constraint firstItem="829-QP-cbm" firstAttribute="top" secondItem="Ak7-MS-yzF" secondAttribute="topMargin" constant="12" id="IHJ-Vg-fx0"/>
                                                             <constraint firstAttribute="trailingMargin" secondItem="829-QP-cbm" secondAttribute="trailing" constant="12" id="MLk-4k-cnp"/>
                                                             <constraint firstItem="h3n-qe-PIv" firstAttribute="centerX" secondItem="Ak7-MS-yzF" secondAttribute="centerX" id="QOQ-2T-k6y"/>
                                                             <constraint firstItem="829-QP-cbm" firstAttribute="leading" secondItem="Ak7-MS-yzF" secondAttribute="leadingMargin" constant="12" id="g9i-Zj-cFo"/>
                                                             <constraint firstItem="h3n-qe-PIv" firstAttribute="centerY" secondItem="Ak7-MS-yzF" secondAttribute="centerY" id="iex-KD-giw"/>
+                                                            <constraint firstItem="KgP-pa-eAs" firstAttribute="top" secondItem="Ak7-MS-yzF" secondAttribute="top" id="q2S-RA-TP3"/>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="markView" destination="vOG-nR-oWg" id="ffN-me-RuB"/>
                                                             <outlet property="projectMark" destination="IS9-ND-ayK" id="YPm-1B-wZB"/>
                                                             <outlet property="projectName" destination="829-QP-cbm" id="lT8-r5-MsM"/>
                                                             <outlet property="projectStatus" destination="h3n-qe-PIv" id="Fqu-ff-5ea"/>
+                                                            <outlet property="subProjectsIcon" destination="KgP-pa-eAs" id="S2H-wL-czx"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -485,6 +498,7 @@
     </scenes>
     <resources>
         <image name="background" width="2000" height="1300"/>
+        <image name="icons8-list-50" width="50" height="50"/>
         <image name="logo" width="114" height="114"/>
     </resources>
 </document>

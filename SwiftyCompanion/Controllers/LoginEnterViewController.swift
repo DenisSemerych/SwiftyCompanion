@@ -13,8 +13,11 @@ class LoginEnterViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loginSearchField: UITextField!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
+        loadingIndicator.isHidden = false
+        loadingIndicator.startAnimating()
         IntraAPIController.shared.requestUserInfo(login: loginSearchField.text!)
         loginSearchField.resignFirstResponder()
     }
@@ -34,6 +37,7 @@ class LoginEnterViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         IntraAPIController.shared.delegate = self
         AlertPresenter.shared.delegate = self
+        loadingIndicator.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -98,10 +102,17 @@ extension LoginEnterViewController: IntraAPIDelegate {
     func processRequestResult(result: RequestResult, with data: Data?) {
         switch result {
         case .success:
-            guard let userData = ItemFactory.shared.createUser(from: data!) else {AlertPresenter.shared.presentAlert(withTitle: "No such user in Intra42"); return}
+            guard let userData = ItemFactory.shared.createUser(from: data!) else {
+                AlertPresenter.shared.presentAlert(withTitle: "No such user in Intra42")
+                loadingIndicator.isHidden = true
+                loadingIndicator.stopAnimating()
+                return
+            }
             performSegue(withIdentifier: "goToLoginInfo", sender: userData)
         case .requestFailure:
             AlertPresenter.shared.presentAlert(withTitle: result.rawValue)
+            loadingIndicator.isHidden = true
+            loadingIndicator.stopAnimating()
         }
     }
     

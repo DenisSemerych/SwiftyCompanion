@@ -241,6 +241,7 @@ extension UserInfoViewController: UICollectionViewDelegate, UICollectionViewData
             cell.backgroundColor = UIColor(red: 115/255, green: 182/255, blue: 102/255, alpha: 1)
             cell.markView.isHidden = false
         }
+        project.subProjects.count > 0 ? (cell.subProjectsIcon.isHidden = false) : (cell.subProjectsIcon.isHidden = true)
         return cell
     }
     

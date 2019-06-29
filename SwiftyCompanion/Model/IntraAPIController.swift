@@ -31,6 +31,7 @@ class IntraAPIController {
     }
     
     private func getNewToken() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let url: URLConvertible = "https://api.intra.42.fr/oauth/token"
         let bearer = ((userID + ":" + secretKey).data(using: String.Encoding.utf8))!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let headers = ["Authorization" : "Basic \(bearer)"]
@@ -40,6 +41,7 @@ class IntraAPIController {
             if let token = responceData.value(forKey: "access_token") as? String {
                 self.token = token
                 UserDefaults.standard.set(token, forKey: "token")
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
            // print(self.token)
             self.taskGroup.leave()
@@ -63,6 +65,7 @@ class IntraAPIController {
 
     //Requesting user info from login
     public func requestUserInfo(login: String) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let url: URLConvertible = "https://api.intra.42.fr/v2/users/" + login.trimmingCharacters(in: .whitespaces).lowercased()
         let headers = ["Authorization" : "Bearer \(token!)"]
         checkToken(from: headers)
@@ -75,11 +78,13 @@ class IntraAPIController {
                     requestResult = .requestFailure
                 }
                 self.delegate?.processRequestResult(result: requestResult, with: response.data)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
     
     public func downloadImageData(from url: URL) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(url, method: .get).response { [unowned self] response in
             self.taskGroup.notify(queue: .main) {
                 let requestResult: RequestResult
@@ -89,6 +94,7 @@ class IntraAPIController {
                     requestResult = .requestFailure
                 }
                 self.delegate?.processRequestResult(result: requestResult, with: response.data)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
