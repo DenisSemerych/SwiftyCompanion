@@ -23,22 +23,21 @@ class IntraAPIController {
     
     //Make request to get token from API
     private func requestToken() {
-        taskGroup.enter()
         if let token = UserDefaults.standard.string(forKey: "token") {
             self.token = token
-            taskGroup.leave()
         } else {getNewToken()}
     }
     
     private func getNewToken() {
+        taskGroup.enter()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let url: URLConvertible = "https://api.intra.42.fr/oauth/token"
         let bearer = ((userID + ":" + secretKey).data(using: String.Encoding.utf8))!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let headers = ["Authorization" : "Basic \(bearer)"]
         let parameters = ["grant_type" : "client_credentials", "client_id" : userID,  "client_secret" : secretKey]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON() {[unowned self] response in
-            let responceData = response.value as! NSDictionary
-            if let token = responceData.value(forKey: "access_token") as? String {
+            let responceData = response.value as? NSDictionary
+            if let token = responceData?.value(forKey: "access_token") as? String {
                 self.token = token
                 UserDefaults.standard.set(token, forKey: "token")
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -53,7 +52,7 @@ class IntraAPIController {
         taskGroup.enter()
         let url: URLConvertible = "https://api.intra.42.fr/oauth/token/info"
         Alamofire.request(url, method: .get, headers: auth).response {[unowned self] response in
-            switch response.response!.statusCode {
+            switch response.response?.statusCode {
             case 200:
                 break
             default:

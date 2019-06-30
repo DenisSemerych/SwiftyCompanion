@@ -14,8 +14,10 @@ class LoginEnterViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loginSearchField: UITextField!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchButton: UIButton!
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
+        guard !loginSearchField.text!.isEmpty else {AlertPresenter.shared.presentAlert(withTitle: "Please, enter user login. Field can`t be blank"); return}
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
         IntraAPIController.shared.requestUserInfo(login: loginSearchField.text!)

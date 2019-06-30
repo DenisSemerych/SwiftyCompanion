@@ -82,6 +82,7 @@
                         <outlet property="imageView" destination="1Rc-1O-Tp8" id="VBe-4v-dai"/>
                         <outlet property="loadingIndicator" destination="0an-Hq-EZM" id="jtq-ep-SfL"/>
                         <outlet property="loginSearchField" destination="jff-wx-WgC" id="kIc-Oh-DnN"/>
+                        <outlet property="searchButton" destination="iEs-5t-7wp" id="1e2-k9-4Fr"/>
                         <outlet property="searchDisplayController" destination="AHR-w3-gtB" id="3zM-R4-5KU"/>
                         <segue destination="MDu-du-M9g" kind="show" identifier="goToLoginInfo" id="PeC-z4-mB4"/>
                     </connections>
@@ -110,7 +111,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1275"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J55-t3-ZI4">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1211.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1210.5"/>
                                         <subviews>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQJ-GN-b7H">
                                                 <rect key="frame" x="186" y="10" width="181" height="20"/>
@@ -118,44 +119,44 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evaluation Points" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1I-iJ-itd">
-                                                <rect key="frame" x="186" y="40" width="181" height="21"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evaluation Points" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1I-iJ-itd">
+                                                <rect key="frame" x="186" y="40" width="181" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugg-ku-BAw">
-                                                <rect key="frame" x="186" y="111" width="181" height="20"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugg-ku-BAw">
+                                                <rect key="frame" x="186" y="110.5" width="181" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campus" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJr-FF-d7K">
-                                                <rect key="frame" x="186" y="156" width="181" height="21"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campus" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJr-FF-d7K">
+                                                <rect key="frame" x="186" y="156" width="181" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLS-jn-m0B">
-                                                <rect key="frame" x="186" y="187" width="181" height="21"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLS-jn-m0B">
+                                                <rect key="frame" x="186" y="186.5" width="181" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rI8-G8-no3">
-                                                <rect key="frame" x="186" y="218" width="181" height="20.5"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rI8-G8-no3">
+                                                <rect key="frame" x="186" y="217" width="181" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliable " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNk-Eh-cm4">
-                                                <rect key="frame" x="8" y="253.5" width="359" height="27.5"/>
+                                                <rect key="frame" x="8" y="252.5" width="359" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLk-FO-s1o" customClass="GTProgressBar" customModule="GTProgressBar">
-                                                <rect key="frame" x="8" y="296" width="359" height="40"/>
+                                                <rect key="frame" x="8" y="295" width="359" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level Lable" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ey-q3-Kmf">
                                                         <rect key="frame" x="136.5" y="10" width="86" height="20.5"/>
@@ -192,14 +193,14 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2G1-55-yKL" customClass="DDSpiderChartView" customModule="DDSpiderChart">
-                                                <rect key="frame" x="8" y="351" width="359" height="380"/>
+                                                <rect key="frame" x="8" y="350" width="359" height="380"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.09864619006849315" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="380" id="fnk-eB-lFG"/>
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YfI-ac-I4p">
-                                                <rect key="frame" x="8" y="746" width="359" height="200"/>
+                                                <rect key="frame" x="8" y="745" width="359" height="200"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.1037029109589041" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="PmI-oz-Z2q"/>
@@ -283,7 +284,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4Z-mG-xt3">
-                                                <rect key="frame" x="186" y="71" width="181" height="30"/>
+                                                <rect key="frame" x="186" y="70.5" width="181" height="30"/>
                                                 <state key="normal" title="Cursus">
                                                     <color key="titleColor" red="0.33333333333333331" green="0.71764705882352942" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -292,7 +293,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L1I-9q-WCT">
-                                                <rect key="frame" x="8" y="954" width="359" height="240"/>
+                                                <rect key="frame" x="8" y="953" width="359" height="240"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.099957191780821922" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
