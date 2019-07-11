@@ -110,6 +110,12 @@ extension LoginEnterViewController: IntraAPIDelegate {
                 loadingIndicator.stopAnimating()
                 return
             }
+            guard userData.name != "NoName", userData.campus != "No Campus" else {
+                AlertPresenter.shared.presentAlert(withTitle: "Something whent wrong during request, try again")
+                loadingIndicator.isHidden = true
+                loadingIndicator.stopAnimating()
+                return
+            }
             performSegue(withIdentifier: "goToLoginInfo", sender: userData)
         case .requestFailure:
             AlertPresenter.shared.presentAlert(withTitle: result.rawValue)
